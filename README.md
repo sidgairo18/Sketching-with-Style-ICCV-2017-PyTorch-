@@ -42,7 +42,7 @@ The current version of the code only includes the architecture models for the St
  * Python script for this part is train.py
  * For more information on the Triplet Network and embedding networks, take a look at networks.py and triplet_network.py files.
 
-### Note: 
+### Note:
 The bottle neck layer chosen has 256 dimensions (from experiments it was seen 256 dimensions instead of 128 makes not much difference in performance).
 
 ### Loss: 
@@ -99,6 +99,20 @@ The bottle neck layer chosen has 256 dimensions (from experiments it was seen 25
  * This implementation has not been verified by the original authors. Please use this at your own risk.
  * Feel free to use this code for your own work, but please cite the original authors if using this work officially.
  * In case of any bugs or errors, please be gracious enough to report an issue on this repo.
+
+## To cite this work:
+```
+@InProceedings{Collomosse_2017_ICCV,
+author = {Collomosse, John and Bui, Tu and Wilber, Michael J. and Fang, Chen and Jin, Hailin},
+title = {Sketching With Style: Visual Search With Sketches and Aesthetic Context},
+booktitle = {The IEEE International Conference on Computer Vision (ICCV)},
+month = {Oct},
+year = {2017}
+} 
+```
+
+
+
 
 ## License:
 We distribute the source codes under the [MIT license](https://opensource.org/licenses/mit-license.php).
