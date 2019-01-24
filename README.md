@@ -30,7 +30,7 @@ The current version of the code only includes the architecture models for the St
 
 Loss: 
 <div align='center'>
-    <img src='./images/triplet_loss.png', height='125px'>
+    <img src='./images/triplet_loss.png', height='125px', width='500px'>
 </div>
 
 
