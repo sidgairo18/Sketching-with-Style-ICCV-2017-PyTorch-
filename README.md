@@ -33,6 +33,12 @@ Loss:
     <img src='./images/triplet_loss.png', height='125px', width='500px'>
 </div>
 
+Triplet Network:
+<div align='center'>
+    <img src='./images/triplet_network.png', height='300px', width='300px'>
+</div>
+
+
 
 ## License:
 We distribute the source codes under the [MIT license](https://opensource.org/licenses/mit-license.php).
