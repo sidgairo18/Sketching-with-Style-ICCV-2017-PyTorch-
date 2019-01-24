@@ -95,7 +95,7 @@ The bottle neck layer chosen has 256 dimensions (from experiments it was seen 25
 ## End-Notes and Disclaimer:
  * The bam dataset images have not been included.
  * The text files in the data folder are just for reference. They may vary according to your own data files.
- * To request access to the Dataset please visit the BAM website [here]((https://bam-dataset.org/).
+ * To request access to the Dataset please visit the BAM website [here](https://bam-dataset.org/).
  * This implementation has not been verified by the original authors. Please use this at your own risk.
  * Feel free to use this code for your own work, but please cite the original authors if using this work officially.
  * In case of any bugs or errors, please be gracious enough to report an issue on this repo.
