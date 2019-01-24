@@ -42,7 +42,8 @@ The current version of the code only includes the architecture models for the St
  * Python script for this part is train.py
  * For more information on the Triplet Network and embedding networks, take a look at networks.py and triplet_network.py files.
 
-### Note: The bottle neck layer chosen has 256 dimensions (from experiments it was seen 256 dimensions instead of 128 makes not much difference in performance).
+### Note: 
+The bottle neck layer chosen has 256 dimensions (from experiments it was seen 256 dimensions instead of 128 makes not much difference in performance).
 
 ### Loss: 
 <div align='center'>
@@ -89,7 +90,7 @@ The current version of the code only includes the architecture models for the St
  * labels_filename => A text file with each line containing 1 integer, label index of the image.
  * Similarly the triplet_dataloader expects 2 files: filenames_filename and triplets_filename.
  * filenames_filename => A text file with each line containing a path to an image, e.g., images/class1/sample.jpg
- * triplets_filename => A text file with each line containing 3 integers, where integer i refers to the i-th image triplets_filename => A text file with each line containing 3 integers, where integer i refers to the i-th image to image c than it is to image b.
+ * triplets_filename => A text file with each line containing 3 integers, where integer i refers to the i-th image to image c than it is to image b.
 
 ## End-Notes and Disclaimer:
  * The bam dataset images have not been included.
