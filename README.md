@@ -28,6 +28,11 @@ The current version of the code only includes the architecture models for the St
  * Python script for this part is train.py
  * For more information on the Triplet Network and embedding networks, take a look at networks.py and triplet_network.py files.
 
+Loss: 
+<div align='center'>
+    <img src='./images/triplet_loss.png', height='125px'>
+</div>
+
 
 ## License:
 We distribute the source codes under the [MIT license](https://opensource.org/licenses/mit-license.php).
