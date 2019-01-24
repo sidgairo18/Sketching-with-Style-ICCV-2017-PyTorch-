@@ -47,7 +47,7 @@ The bottle neck layer chosen has 256 dimensions (from experiments it was seen 25
 
 ### Loss: 
 <div align='center'>
-    <img src='./images/triplet_loss.png', height='125px', width='300px'>
+    <img src='./images/triplet_loss.png', height='50px', width='100px>
 </div>
 
 ### Triplet Network:
