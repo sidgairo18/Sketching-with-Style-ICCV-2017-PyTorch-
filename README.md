@@ -20,7 +20,7 @@ The current version of the code only includes the architecture models for the St
  * To request access to the Dataset please visit the BAM website [here]((https://bam-dataset.org/).
  * For training of both the stages, we use a 80:10:10 split for Training, Validation and Testing as mentioned in the paper.
 
-A preview of the images in BAM Dataset:
+###A preview of the images in BAM Dataset:
 <div align='center'>
     <img src='./images/BAM_sample.png', height='500px', width='500px'>
 </div>
@@ -42,26 +42,26 @@ A preview of the images in BAM Dataset:
  * Python script for this part is train.py
  * For more information on the Triplet Network and embedding networks, take a look at networks.py and triplet_network.py files.
 
-Note: The bottle neck layer chosen has 256 dimensions (from experiments it was seen 256 dimensions instead of 128 makes not much difference in performance).
+###Note: The bottle neck layer chosen has 256 dimensions (from experiments it was seen 256 dimensions instead of 128 makes not much difference in performance).
 
-Loss: 
+###Loss: 
 <div align='center'>
     <img src='./images/triplet_loss.png', height='125px', width='300px'>
 </div>
 
-Triplet Network:
+###Triplet Network:
 <div align='center'>
     <img src='./images/triplet_convnet.png', height='300px', width='300px'>
 </div>
 
 ## t-sne Visualization for Learnt Embeddings.
 
-Tsne for Embeddings after Stage 1 Training is complete:
+###Tsne for Embeddings after Stage 1 Training is complete:
 <div align='center'>
     <img src='./images/tsne_classification.png', height='300px', width='300px'>
 </div>
 
-Tsne for Embeddings after Stage 2 Training is complete:
+###Tsne for Embeddings after Stage 2 Training is complete:
 <div align='center'>
     <img src='./images/tsne_triplet.png', height='300px', width='300px'>
 </div>
@@ -78,7 +78,18 @@ Tsne for Embeddings after Stage 2 Training is complete:
     <img src='./images/triplet_retrieval.png', height='300px', width='300px'>
 </div>
 
+##Running the Training Procedure:
+ * For Stage 1, run `python classification.py`
+ * For Stage 2, run `python train.py`
+ * For details on the data-loader and data text files see next section.
 
+##Data files in /data folder:
+ * the classification_dataloader expects 2 files: filenames_filename and labels_filename.
+ * filenames_filename => A text file with each line containing a path to an image, e.g., images/class1/sample.jpg
+ * labels_filename => A text file with each line containing 1 integer, label index of the image.
+ * Similarly the triplet_dataloader expects 2 files: filenames_filename and triplets_filename.
+ * filenames_filename => A text file with each line containing a path to an image, e.g., images/class1/sample.jpg
+ * triplets_filename => A text file with each line containing 3 integers, where integer i refers to the i-th image triplets_filename => A text file with each line containing 3 integers, where integer i refers to the i-th image to image c than it is to image b.
 
 ## License:
 We distribute the source codes under the [MIT license](https://opensource.org/licenses/mit-license.php).
