@@ -54,8 +54,6 @@ def main():
     #plotter = VisdomLinePlotter(env_name=args.name)
 
     kwargs = {'num_workers': 10, 'pin_memory': True} if args.cuda else {}
-    mnist_classes = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-
 
     #training loader
     train_loader = torch.utils.data.DataLoader(ClassificationImageLoader(base_path='../data', filenames_filename='../data/bam_classification_training_filename.txt', labels_filename='../data/bam_classification_training_labels.txt', transform=transforms.Compose([transforms.ToTensor()])), batch_size = args.batch_size, shuffle=True, **kwargs)
