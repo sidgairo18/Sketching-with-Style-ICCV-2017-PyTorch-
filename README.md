@@ -18,7 +18,7 @@ The current version of the code only includes the architecture models for the St
  * For more information on the dataset and how to harvest it, refer to Section 3.1 and 3.2.1 of the Paper)
  * The harvested dataset used in the Paper use 10,000 images for each Style, which results in 110,000 images. (We harvest 11,000 images for each style which results in 121,000 images. We try to make the harvested dataset as close to balanced in content as possible.)
  * To request access to the Dataset please visit the BAM website [here]((https://bam-dataset.org/).
- * For training of both the stages, we use a 80:10:10 split for Training, Validation and Testing.
+ * For training of both the stages, we use a 80:10:10 split for Training, Validation and Testing as mentioned in the paper.
 
 A preview of the images in BAM Dataset:
 <div align='center'>
@@ -64,6 +64,18 @@ Tsne for Embeddings after Stage 1 Training is complete:
 Tsne for Embeddings after Stage 2 Training is complete:
 <div align='center'>
     <img src='./images/tsne_triplet.png', height='300px', width='300px'>
+</div>
+
+## Retrieval Results:
+
+### Retrieval Results after Stage 1:
+<div align='center'>
+    <img src='./images/classification_retrieval.png', height='300px', width='300px'>
+</div>
+
+### Retrieval Results after Stage 2:
+<div align='center'>
+    <img src='./images/triplet_retrieval.png', height='300px', width='300px'>
 </div>
 
 
