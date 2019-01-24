@@ -28,6 +28,8 @@ The current version of the code only includes the architecture models for the St
  * Python script for this part is train.py
  * For more information on the Triplet Network and embedding networks, take a look at networks.py and triplet_network.py files.
 
+Note: The bottle neck layer chosen has 256 dimensions (from experiments it was seen 256 dimensions instead of 128 makes not much difference in performance).
+
 Loss: 
 <div align='center'>
     <img src='./images/triplet_loss.png', height='125px', width='300px'>
@@ -36,6 +38,18 @@ Loss:
 Triplet Network:
 <div align='center'>
     <img src='./images/triplet_convnet.png', height='300px', width='300px'>
+</div>
+
+## t-sne Visualization for Learnt Embeddings.
+
+Tsne for Embeddings after Stage 1 Training is complete:
+<div align='center'>
+    <img src='./images/tsne_classification.png', height='125px', width='300px'>
+</div>
+
+Tsne for Embeddings after Stage 2 Training is complete:
+<div align='center'>
+    <img src='./images/tsne_triplet.png', height='125px', width='300px'>
 </div>
 
 
