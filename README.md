@@ -13,6 +13,20 @@ The current version of the code only includes the architecture models for the St
  * tqdm
  * cudnn (CUDA for training on GPU)
 
+## Dataset:
+ * The dataset used is a harvested subset of [BAM Dataset](https://bam-dataset.org/), which is equally distributed in style and content. (Although during harvesting, we were able to only achieve style balance, but not content balance.)
+ * For more information on the dataset and how to harvest it, refer to Section 3.1 and 3.2.1 of the Paper)
+ * The harvested dataset used in the Paper use 10,000 images for each Style, which results in 110,000 images. (We harvest 11,000 images for each style which results in 121,000 images. We try to make the harvested dataset as close to balanced in content as possible.)
+ * To request access to the Dataset please visit the BAM website [here]((https://bam-dataset.org/).
+ * For training of both the stages, we use a 80:10:10 split for Training, Validation and Testing.
+
+A preview of the images in BAM Dataset:
+<div align='center'>
+    <img src='./images/BAM_sample.png', height='500px', width='500px'>
+</div>
+
+
+
 ## Training (Stage 1):
  * The training takes place in 2 stages. Stage 1 involves training a CNN (AlexNet used, which can be modified in the networks.py file) with Softmax classification loss (categorical cross-entropy) and Adam Optimizer.
  * There are 11 Style Classes in the [BAM Dataset](https://bam-dataset.org/) - 3D Graphics, Comic, Pencil Sketch, Oil Paint, Pen Ink, Vector Art, Water Color, Scary, Gloomy, Happy and Peaceful.
