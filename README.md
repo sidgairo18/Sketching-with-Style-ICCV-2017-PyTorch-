@@ -3,7 +3,7 @@ This is an un-official re-implementation of the work **[Sketching with Style pre
 
 The current version of the code only includes the architecture models for the Style Representation Learning, till section 3.2.1 of the paper. (Although the code for the Content Representation Learning pipeline is also very similar and the code can be adapted to extend this very easily).
 
-Dependencies:
+## Dependencies:
 
  * Python3
  * PyTorch (and other dependencies for PyTorch)
@@ -14,5 +14,5 @@ Dependencies:
  * cudnn (CUDA for training on GPU)
 
 
-License:
+## License:
 We distribute the source codes under the [MIT license](https://opensource.org/licenses/mit-license.php).
