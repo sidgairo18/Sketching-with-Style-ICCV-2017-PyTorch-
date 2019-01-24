@@ -90,7 +90,7 @@ The bottle neck layer chosen has 256 dimensions (from experiments it was seen 25
  * labels_filename => A text file with each line containing 1 integer, label index of the image.
  * Similarly the triplet_dataloader expects 2 files: filenames_filename and triplets_filename.
  * filenames_filename => A text file with each line containing a path to an image, e.g., images/class1/sample.jpg
- * triplets_filename => A text file with each line containing 3 integers, where integer i refers to the i-th image to image c than it is to image b.
+ * triplets_filename => A text file with each line containing 3 integers, where integer i refers to the i-th image in filenames_filename. For a line with integers "a b c", a triplet is defined such that image a is more similar to image c than it is to image b.
 
 ## End-Notes and Disclaimer:
  * The bam dataset images have not been included.
