@@ -44,12 +44,12 @@ Triplet Network:
 
 Tsne for Embeddings after Stage 1 Training is complete:
 <div align='center'>
-    <img src='./images/tsne_classification.png', height='125px', width='300px'>
+    <img src='./images/tsne_classification.png', height='300px', width='300px'>
 </div>
 
 Tsne for Embeddings after Stage 2 Training is complete:
 <div align='center'>
-    <img src='./images/tsne_triplet.png', height='125px', width='300px'>
+    <img src='./images/tsne_triplet.png', height='300px', width='300px'>
 </div>
 
 
