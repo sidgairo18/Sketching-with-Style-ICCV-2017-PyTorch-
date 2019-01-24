@@ -53,28 +53,22 @@ def main():
     kwargs = {'num_workers': 10, 'pin_memory': True} if args.cuda else {}
 
     #training loader
-    train_loader = torch.utils.data.DataLoader(TripletImageLoader(base_path='/scratch', filenames_filename='bam_filename.txt', triplets_filename='bam_training_triplet_filename.txt', transform=transforms.Compose([transforms.ToTensor()])), batch_size = args.batch_size, shuffle=True, **kwargs)
+    train_loader = torch.utils.data.DataLoader(TripletImageLoader(base_path='/scratch', filenames_filename='../data/bam_filename.txt', triplets_filename='../data/bam_training_triplet_filename.txt', transform=transforms.Compose([transforms.ToTensor()])), batch_size = args.batch_size, shuffle=True, **kwargs)
     
     #testing_loader - Remember to update filenames_filename, triplet_filename
-    test_loader = torch.utils.data.DataLoader(TripletImageLoader(base_path='/scratch', filenames_filename='bam_filename.txt', triplets_filename='bam_testing_triplet_filename.txt', transform=transforms.Compose([transforms.ToTensor()])), batch_size = args.batch_size, shuffle=False, **kwargs)
+    test_loader = torch.utils.data.DataLoader(TripletImageLoader(base_path='/scratch', filenames_filename='../data/bam_filename.txt', triplets_filename='../data/bam_testing_triplet_filename.txt', transform=transforms.Compose([transforms.ToTensor()])), batch_size = args.batch_size, shuffle=False, **kwargs)
 
     #model is the embedding network architecture
-    #model = Net()
-
-    #Trying to use a pre-define model architecture for model
-    #model = torchvision.models.inception_v3()
     model = SomeNet()
 
 
     tnet = Tripletnet(model)
-    checkpoint = torch.load('./runs/TripletNet/checkpoint.pth.tar')
-    print ("Epochs", checkpoint['epoch'])
-    tnet.load_state_dict(checkpoint['state_dict'])
     print(tnet)
+    
+    #Load the Model weights from Stage 1 - which is Softmax Classification,
+    #Uncomment the below line and update the path for the model state_dict().
 
-    print(tnet.state_dict())
-
-    exit()
+    #checkpoint = torch.load('./runs/TripletNet/checkpoint.pth.tar')
 
     if args.cuda:
         tnet.cuda()
@@ -110,15 +104,12 @@ def main():
 
         is_best = acc > best_acc
         best_acc = max(acc, best_acc)
-        #extract_embeddings(test_loader, model)
-        if epoch == 20:
-            save_checkpoint({'epoch':epoch+1, 'state_dict':tnet.state_dict(), 'best_prec1':best_acc,}, is_best)
+
+        if is_best:
+            save_checkpoint({'epoch':epoch, 'state_dict':tnet.state_dict(), 'best_prec1':best_acc,}, is_best)
     
-    epoch = 50
-    is_best = 1
-    best_acc = 0
-    save_checkpoint({'epoch':epoch+1, 'state_dict':tnet.state_dict(), 'best_prec1':best_acc,}, is_best)
-    extract_embeddings(test_loader, model)
+    #Extract Embeddings function is called.
+    #extract_embeddings(test_loader, model)
 
 def train(train_loader, tnet, criterion, optimizer, epoch):
     losses = AverageMeter()
@@ -287,5 +278,3 @@ class VisdomLinePlotter(object):
 
 if __name__ == "__main__":
     main()
-
-

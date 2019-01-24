@@ -28,7 +28,6 @@ class SomeNet(nn.Module):
     def __init__(self):                                             
         super(SomeNet, self).__init__()                             
         self.convnet = torchvision.models.alexnet(pretrained=False) 
-        #self.bottleneck = nn.Sequential(nn.Linear(1000, 256))           
         self.bottleneck = nn.Linear(1000, 256)                     
                                                                     
     def forward(self, x):                                           

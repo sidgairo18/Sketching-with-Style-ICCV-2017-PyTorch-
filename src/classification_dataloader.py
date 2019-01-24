@@ -17,17 +17,9 @@ import warnings
 warnings.filterwarnings("ignore")
 
 plt.ion() #interative
-print("Import Successful TripletImageLoader")
+print("Import Successful ClassificationImageLoader")
 
-'''
-def default_image_loader(path):
-    
-    return (Image.open(path).convert('RGB')).resize((224, 224), Image.ANTIALIAS)
-    #return (Image.open(path).convert('RGB'))
-    #return Image.open(path)
-'''
 def default_image_loader(image_file):                                            
-    #img = misc.imread(image_file)                                          
     img = cv2.imread(image_file)
     
     if img is None:
@@ -42,11 +34,8 @@ def default_image_loader(image_file):
     
     img = cv2.cvtColor(np.uint8(img), cv2.COLOR_BGR2RGB)                    
     img = img.astype('float32')                                             
-    img = img
-                                                                            
-    #img_resized = misc.imresize(img, (224, 224))                           
-    img_resized = cv2.resize(img, (224, 224))                               
-    #img_resized = img                             
+    img_resized = cv2.resize(img, (224, 224))
+
     return (img_resized/255.0).astype('float32')
 
 class ClassificationImageLoader(Dataset):
@@ -82,4 +71,3 @@ class ClassificationImageLoader(Dataset):
 
     def __len__(self):
         return len(self.labels)
-

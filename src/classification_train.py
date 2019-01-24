@@ -58,38 +58,18 @@ def main():
 
 
     #training loader
-    #train_loader = torch.utils.data.DataLoader(ClassificationImageLoader(base_path='.', filenames_filename='training_filename.txt', labels_filename='mnist_train_labels.txt', transform=transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])), batch_size = args.batch_size, shuffle=True, **kwargs)
-
-    train_loader = torch.utils.data.DataLoader(ClassificationImageLoader(base_path='/scratch', filenames_filename='bam_classification_training_filename.txt', labels_filename='bam_classification_training_labels.txt', transform=transforms.Compose([transforms.ToTensor()])), batch_size = args.batch_size, shuffle=True, **kwargs)
+    train_loader = torch.utils.data.DataLoader(ClassificationImageLoader(base_path='../data', filenames_filename='../data/bam_classification_training_filename.txt', labels_filename='../data/bam_classification_training_labels.txt', transform=transforms.Compose([transforms.ToTensor()])), batch_size = args.batch_size, shuffle=True, **kwargs)
     
     #testing_loader - Remember to update filenames_filename, triplet_filename
-    #test_loader = torch.utils.data.DataLoader(ClassificationImageLoader(base_path='.', filenames_filename='testing_filename.txt', labels_filename='mnist_test_labels.txt', transform=transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))])), batch_size = args.batch_size, shuffle=False, **kwargs)
-    test_loader = torch.utils.data.DataLoader(ClassificationImageLoader(base_path='/scratch', filenames_filename='bam_classification_testing_filename.txt', labels_filename='bam_classification_testing_labels.txt', transform=transforms.Compose([transforms.ToTensor()])), batch_size = args.batch_size, shuffle=False, **kwargs)
-    '''
-    mean, std = 0.1307, 0.3081
-    train_dataset = MNIST('../data/MNIST', train=True, download=True, transform=transforms.Compose([transforms.ToTensor(),transforms.Normalize((mean,), (std,))]))
-    test_dataset = MNIST('../data/MNIST', train=False, download=True, transform=transforms.Compose([transforms.ToTensor(), transforms.Normalize((mean,), (std,))]))
-    # Set up data loaders                                                   
-    batch_size = 256                                                        
-    kwargs = {'num_workers': 1, 'pin_memory': True} if args.cuda else {}         
-    train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True, **kwargs)
-    test_loader = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False, **kwargs)
-    '''
+    test_loader = torch.utils.data.DataLoader(ClassificationImageLoader(base_path='../data', filenames_filename='../data/bam_classification_testing_filename.txt', labels_filename='../data/bam_classification_testing_labels.txt', transform=transforms.Compose([transforms.ToTensor()])), batch_size = args.batch_size, shuffle=False, **kwargs)
+    
     #model is the embedding network architecture
-    #model = Net()
-
-    #Trying to use a pre-define model architecture for model
-    #model = torchvision.models.inception_v3()
     model = SomeNet()
-    #model = EmbeddingNet()
+
+    #Classification Network
+    class_net = ClassificationNet(model, n_classes = args.n_classes)
 
     print ("Number of classes", args.n_classes)
-    class_net = ClassificationNet(model, n_classes = args.n_classes)
-    
-    #checkpoint = torch.load('./runs/TripletNet/model_best.pth.tar')
-    #class_net.embedding_net.load_state_dict(checkpoint['state_dict'])
-    #print (class_net.embedding_net.state_dict())
-    
     print (class_net)
 
     if args.cuda:
@@ -140,13 +120,8 @@ def main():
 
         print (message)
 
-        #extract_embeddings(test_loader, model)
         
-    best_acc = 0
-    is_best = 1
-    epoch = 30
-    save_checkpoint({'epoch':epoch, 'state_dict':class_net.embedding_net.state_dict(), 'best_prec1':best_acc,}, is_best)
-    extract_embeddings(test_loader, model)
+    #extract_embeddings(test_loader, model)
 
 def train(train_loader, class_net, criterion, optimizer, scheduler, epoch, metrics):
 
@@ -387,5 +362,3 @@ class VisdomLinePlotter(object):
 
 if __name__ == "__main__":
     main()
-
-

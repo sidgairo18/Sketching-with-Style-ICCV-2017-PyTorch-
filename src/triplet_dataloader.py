@@ -19,12 +19,6 @@ warnings.filterwarnings("ignore")
 plt.ion() #interative
 print("Import Successful TripletImageLoader")
 
-'''
-def default_image_loader(path):
-    return (Image.open(path).convert('RGB')).resize((224, 224), Image.ANTIALIAS)
-    #return Image.open(path)
-'''
-
 def default_image_loader(image_file):                                           
     #img = misc.imread(image_file)
     img = cv2.imread(image_file)
@@ -84,4 +78,3 @@ class TripletImageLoader(Dataset):
 
     def __len__(self):
         return len(self.triplets)
-
